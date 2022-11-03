@@ -3,7 +3,8 @@ import {Route, Routes} from "react-router-dom";
 import routes from "./routes";
 import './App.css';
 import Container from "./components/Container/Container"
-import JobList from "./views/JobList/JobList";
+
+const JobList = React.lazy(() => import("./views/JobList/JobList"));
 
 const {
     REACT_APP_TIK_TUK_API_KEY: headerApiKey,
