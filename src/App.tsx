@@ -6,11 +6,6 @@ import Container from "./components/Container/Container"
 
 const JobList = React.lazy(() => import("./views/JobList/JobList"));
 
-const {
-    REACT_APP_TIK_TUK_API_KEY: headerApiKey,
-    REACT_APP_TIK_TUK_API_BASE_URL: baseUrl,
-} = process.env;
-
 function App() {
     return (
         <div className="App">

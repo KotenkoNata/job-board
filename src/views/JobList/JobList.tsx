@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
+import axios from "axios";
 
 type Data = {
     id: number;
@@ -7,26 +8,67 @@ type Data = {
     phone: string;
 }
 
-interface Props{
+interface Props {
     error: string;
     responseData: Data[];
 }
 
+const {
+    REACT_APP_API_KEY: headerApiKey,
+    REACT_APP_API_BASE_URL: baseUrl,
+} = process.env;
+
 const JobList = () => {
 
-    const [data, setData] = useState<Props[] | {
-        error: "",
-        responseData: [],
-    }>({
+    const [data, setData] = useState({
         error: "",
         responseData: [],
     });
 
+    useEffect(() => {
 
+        const getJobList = async () => {
+            try {
 
-    return(
+                const response = await axios({
+                    url: baseUrl,
+                    method: "get",
+                    data: {
+                        access_token: `${headerApiKey}`,
+                    }
+                })
+
+                if (!response.data || response.data.length === 0) {
+                    setData(() => ({
+                        error: "Response data is empty",
+                        responseData: [],
+                    }));
+                    return;
+                }
+                setData(() => ({
+                    error: "",
+                    responseData: response.data,
+                }));
+
+                console.log(response)
+            } catch (error: any) {
+                console.error(error);
+                setData(() => ({
+                    error: error.message,
+                    responseData: [],
+                }));
+            }
+
+            return null
+        }
+
+        getJobList()
+
+    }, [])
+
+    return (
         <>
-            <h1>Hello aaaaaayyyyyyyy</h1>
+            <h1>Hello aaaaaayyyyyyyy dfsdfsdf</h1>
         </>
     )
 }
