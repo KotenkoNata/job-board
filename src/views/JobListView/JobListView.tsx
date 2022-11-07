@@ -1,16 +1,12 @@
 import React, {useEffect, useState} from "react";
+import {Job} from "./../../models";
 import axios from "axios";
+import JobList from "../../components/JobList/JobList";
 
-type Data = {
-    id: number;
-    name: string;
-    email: string;
-    phone: string;
-}
 
 interface Props {
     error: string;
-    responseData: Data[];
+    responseData: Job[];
 }
 
 const {
@@ -18,7 +14,7 @@ const {
     REACT_APP_API_BASE_URL: baseUrl,
 } = process.env;
 
-const JobList = () => {
+const JobListView:React.FC = () => {
 
     const [data, setData] = useState({
         error: "",
@@ -31,11 +27,8 @@ const JobList = () => {
             try {
 
                 const response = await axios({
-                    url: baseUrl,
-                    method: "get",
-                    data: {
-                        access_token: `${headerApiKey}`,
-                    }
+                    method: "GET",
+                    url: `${baseUrl}?access_token=${headerApiKey}`
                 })
 
                 if (!response.data || response.data.length === 0) {
@@ -50,7 +43,7 @@ const JobList = () => {
                     responseData: response.data,
                 }));
 
-                console.log(response)
+                console.log(`response.data`,response.data, `data.responseData`,data.responseData)
             } catch (error: any) {
                 console.error(error);
                 setData(() => ({
@@ -68,9 +61,9 @@ const JobList = () => {
 
     return (
         <>
-            <h1>Hello aaaaaayyyyyyyy dfsdfsdf</h1>
+            <JobList data = {data.responseData}/>
         </>
     )
 }
 
-export default JobList;
+export default JobListView;

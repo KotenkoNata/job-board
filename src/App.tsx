@@ -4,7 +4,7 @@ import routes from "./routes";
 import './App.css';
 import Container from "./components/Container/Container"
 
-const JobList = React.lazy(() => import("./views/JobList/JobList"));
+const JobList = React.lazy(() => import("./views/JobListView/JobListView"));
 
 function App() {
     return (
