@@ -25,17 +25,19 @@ const JobListItem = ({job, key}: Props)=>{
            <div className="h-[85px] w-[85px] bg-slate-800 rounded-full overflow-hidden mr-7">
            <img className="object-fill" src={job.pictures[0]} alt={job.name}/>
            </div>
-           <div>
+           <div className="w-[100%]">
                <p className="mb-2">{job.title}</p>
                <div className="secondary-text">
                <h3 className="mb-2">Department name · {job.name}</h3>
-               <div className="flex justify-between">
+               <div className="flex">
                    <div className="flex">
                        <img className="mr-2" src={`${process.env.PUBLIC_URL}/images/Location.svg`}></img>
                        <span>{job.address}</span>
                    </div>
-                   <div>
-                       <p>Posted `{dateDiffInDays(job.createdAt, job.updatedAt) > 1 ? "day" : "days"}` ago</p>
+                   <div className="ml-auto">
+                       <span>Posted {`${dateDiffInDays(job.createdAt, job.updatedAt) > 0 ?
+                           `${dateDiffInDays(job.createdAt, job.updatedAt)} day` :
+                           `${dateDiffInDays(job.createdAt, job.updatedAt)} days`} `} ago</span>
                    </div>
                </div>
                </div>

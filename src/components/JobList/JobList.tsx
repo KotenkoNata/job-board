@@ -9,7 +9,7 @@ interface Props {
 const JobList: React.FC<Props> =({data}: Props)=>{
     console.log(`data`,data)
     return (
-        <ul className="mx-auto my-0 mb-20">
+        <ul className="mx-auto my-0 mt-7">
             {data.map((job)=>(
                 <JobListItem job={job} key={job.id}/>
             ))}
