@@ -38,7 +38,6 @@ const JobListItem = ({job, key}: Props)=>{
                    </div>
                </div>
 
-
                <div className="secondary-text">
                <h3 className="mb-2">Department name · {job.name}</h3>
                <div className="flex">
