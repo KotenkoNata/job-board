@@ -1,5 +1,6 @@
 import React from "react";
 import {Job} from "./../../models";
+import { Link } from "react-router-dom";
 
 type Props = {
     key: string,
@@ -26,7 +27,18 @@ const JobListItem = ({job, key}: Props)=>{
            <img className="object-fill" src={job.pictures[0]} alt={job.name}/>
            </div>
            <div className="w-[100%]">
-               <p className="mb-2">{job.title}</p>
+               <div className="flex">
+                   <div>
+                       <Link to={{ pathname: `/job/${job.id}` }}>
+                            <p className="mb-2">{job.title}</p>
+                       </Link>
+                   </div>
+                   <div className="ml-auto">
+                       <img src={`${process.env.PUBLIC_URL}/images/Bookmark.svg`}></img>
+                   </div>
+               </div>
+
+
                <div className="secondary-text">
                <h3 className="mb-2">Department name · {job.name}</h3>
                <div className="flex">

@@ -1,6 +1,6 @@
 const routes = {
     jobList: "/",
-    detailedJob: "/job",
+    detailedJob: "/job/:id",
 };
 
 export default routes;
