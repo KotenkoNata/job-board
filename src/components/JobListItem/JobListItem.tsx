@@ -1,40 +1,28 @@
 import React from "react";
 import {Job} from "./../../models";
 import { Link } from "react-router-dom";
+import dateDiffInDays from "./../../services/dateDiffInDays";
 
 type Props = {
-    key: string,
     job: Job,
 }
 
-const JobListItem = ({job, key}: Props)=>{
-
-    function dateDiffInDays(a: string, b:string) {
-        const _MS_PER_DAY = 1000 * 60 * 60 * 24;
-
-        let first = new Date(a);
-        let second = new Date(b);
-
-        const utc1 = Date.UTC(first.getFullYear(), first.getMonth(), first.getDate());
-        const utc2 = Date.UTC(second.getFullYear(), second.getMonth(), second.getDate());
-
-        return Math.floor((utc2 - utc1) / _MS_PER_DAY);
-    }
+const JobListItem = ({job}: Props)=>{
 
    return(
-       <li className="bg-[#FFFFFF] px-6 py-4 flex h-[164px] items-center mb-[8px] shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]" key={key}>
+       <li key={job.id} className="bg-[#FFFFFF] px-6 py-4 flex h-[164px] items-center mb-[8px] shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]">
            <div className="h-[85px] w-[85px] bg-slate-800 rounded-full overflow-hidden mr-7">
            <img className="object-fill" src={job.pictures[0]} alt={job.name}/>
            </div>
            <div className="w-[100%]">
                <div className="flex">
                    <div>
-                       <Link to={{ pathname: `/job/${job.id}` }}>
+                       <Link to={{pathname: `/job/${job.id}`}}>
                             <p className="mb-2">{job.title}</p>
                        </Link>
                    </div>
                    <div className="ml-auto">
-                       <img src={`${process.env.PUBLIC_URL}/images/Bookmark.svg`}></img>
+                       <img src={`${process.env.PUBLIC_URL}/images/Bookmark.svg`} alt={job.title}></img>
                    </div>
                </div>
 
@@ -42,7 +30,7 @@ const JobListItem = ({job, key}: Props)=>{
                <h3 className="mb-2">Department name · {job.name}</h3>
                <div className="flex">
                    <div className="flex">
-                       <img className="mr-2" src={`${process.env.PUBLIC_URL}/images/Location.svg`}></img>
+                       <img className="mr-2" src={`${process.env.PUBLIC_URL}/images/Location.svg`} alt="Location icon"></img>
                        <span>{job.address}</span>
                    </div>
                    <div className="ml-auto">

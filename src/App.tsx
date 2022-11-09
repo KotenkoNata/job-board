@@ -5,9 +5,11 @@ import './App.css';
 import Container from "./components/Container/Container"
 import getJobList from "./services/jobAPI";
 import {Job} from "./models";
+import JobList from "./views/JobListView/JobListView";
+import DetailedJob from "./views/DetailedJob/DetailedJob";
 
-const JobList = React.lazy(() => import("./views/JobListView/JobListView"));
-const DetailedJob = React.lazy(()=>import("./views/DetailedJob/DetailedJob"));
+// const JobList = React.lazy(() => import("./views/JobListView/JobListView"));
+// const DetailedJob = React.lazy(()=>import("./views/DetailedJob/DetailedJob"));
 
 interface Props {
     error: string;
