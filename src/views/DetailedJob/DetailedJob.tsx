@@ -4,6 +4,7 @@ import {Job} from "../../models";
 import ButtonApply from "../../components/Button/ButtonApply";
 import JobDescription from "../../components/JobDescription/JobDescription";
 import JobDetailsHeader from "../../components/JobDetailsHeader/JobDetailsHeader";
+import AdditionalInfo from "../../components/AdditionalInfo/AdditionalInfo";
 
 interface Props {
     jobs: Job[]
@@ -38,6 +39,7 @@ const DetailedJob = ({jobs}: Props) => {
                 <ButtonApply/>
                 <JobDescription detailedJob={detailedJob}/>
                 <ButtonApply/>
+                <AdditionalInfo detailedJob={detailedJob}/>
             </div>
             <div>
                 map
