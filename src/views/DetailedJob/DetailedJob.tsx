@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import {useParams} from "react-router-dom";
 import {Job} from "../../models";
 import ButtonApply from "../../components/Button/ButtonApply";
@@ -32,12 +32,17 @@ const DetailedJob = ({jobs}: Props) => {
     }
 
     return (
-        <>
-            <JobDetailsHeader/>
-            <ButtonApply/>
-            <JobDescription detailedJob={detailedJob}/>
-            <ButtonApply/>
-        </>
+        <div className="grid grid-cols-[_2fr_1fr] gap-[8rem]">
+            <div>
+                <JobDetailsHeader/>
+                <ButtonApply/>
+                <JobDescription detailedJob={detailedJob}/>
+                <ButtonApply/>
+            </div>
+            <div>
+                map
+            </div>
+        </div>
     )
 }
 
