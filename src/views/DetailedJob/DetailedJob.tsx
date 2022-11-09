@@ -6,42 +6,37 @@ import JobDescription from "../../components/JobDescription/JobDescription";
 import JobDetailsHeader from "../../components/JobDetailsHeader/JobDetailsHeader";
 
 interface Props {
-    data: Job[]
+    jobs: Job[]
 }
 
-const DetailedJob = ({data}: Props) => {
+const DetailedJob = ({jobs}: Props) => {
     const {id} = useParams();
-    console.log(`id`,id)
-    const[detailedJob, setDetailedJob] = useState<Job[]>([]);
 
-    function findJob(id:string) {
-        console.log(`id inside findJob`, id)
-        let result = [];
-        result = data.filter(item=>{
-           return item["id"] === id
+    function findJob(jobs: Job[], id: string): Job | null {
+        const result = jobs.filter(item => {
+            return item["id"] === id
         })
-        console.log(`result findJob`,result)
-        return result;
+        if (result.length > 0) {
+            return result[0]
+        }
+        return null;
     }
 
-    useEffect(() => {
-        console.log(`id second step`,id)
-        if(id){
-            const jobObject = findJob(id);
-            console.log(`jobDetails inside UseEffect`,jobObject);
-            setDetailedJob(()=>jobObject);
-        }else{
-            console.log("error", id)
-        }
+    const detailedJob = findJob(jobs, `${id}`)
 
-    }, [id])
 
-console.log(`detailedJob finish`,detailedJob)
+    if (!detailedJob) {
+        return <>
+            <div>Job Not Found</div>
+        </>
+    }
+
     return (
         <>
-            <JobDetailsHeader />
-            <ButtonApply />
-            {/*<JobDescription detailedJob={detailedJob}/>*/}
+            <JobDetailsHeader/>
+            <ButtonApply/>
+            <JobDescription detailedJob={detailedJob}/>
+            <ButtonApply/>
         </>
     )
 }

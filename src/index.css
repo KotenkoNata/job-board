@@ -33,3 +33,12 @@ body {
   color: #3A4562;
   font-stretch: 100;
 }
+
+.benefit-item{
+  list-style-type: square;
+}
+
+.benefit-item::marker {
+  color: rgba(56, 69, 100, 0.632594);
+  font-size: 20px;
+}

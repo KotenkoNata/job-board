@@ -54,7 +54,7 @@ const App: React.FC = ()=>{
             <Container>
                 <Routes>
                     <Route path={routes.jobList} element={<JobList data={data.responseData}/>}/>
-                    <Route path={routes.detailedJob} element={<DetailedJob data={data.responseData}/>} />
+                    <Route path={routes.detailedJob} element={<DetailedJob jobs={data.responseData}/>} />
                     {/*<Route component={NotFound} />*/}
                 </Routes>
             </Container>

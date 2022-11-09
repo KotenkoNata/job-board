@@ -1,21 +1,16 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import {Job} from "../../models";
 import dateDiffInDays from "./../../services/dateDiffInDays";
-import BenefitsList from "../BenefitsList/BenefitsList";
 
-interface Props{
-    detailedJob: Job[]
+interface Props {
+    detailedJob: Job
 }
 
 const JobDescription = ({detailedJob}: Props) => {
 
-    const [descriptionText, setDescriptionText] = useState<string[]>([]);
-
-    console.log(`detailedJob`,detailedJob)
-
     function divideTextDescription(str: string) {
         let result = [];
-        result =  str.trim()
+        result = str.trim()
             .replace(/[\r\n|\n|\r]/g, "")
             .split(/\s\s+/g)
             .filter(item => item !== 'Responsopilities:' && item !== 'Compensation & Benefits:');
@@ -23,36 +18,42 @@ const JobDescription = ({detailedJob}: Props) => {
         return result;
     }
 
-    useEffect(()=>{
-        const text = divideTextDescription(detailedJob[0].description);
-        setDescriptionText(() => text);
-    }, [])
+        const descriptionArray = divideTextDescription(detailedJob.description);
 
-  return (
-      <>
-          <div className="flex">
-              <h2>{detailedJob[0].title}</h2>
-              <div className="ml-auto">
-                  <span>{detailedJob[0].salary}</span>
-                  <p>Brutto, per year</p>
-              </div>
-          </div>
-          <span>Posted {`${dateDiffInDays(detailedJob[0].createdAt, detailedJob[0].updatedAt) > 0 ?
-              `${dateDiffInDays(detailedJob[0].createdAt, detailedJob[0].updatedAt)} day` :
-              `${dateDiffInDays(detailedJob[0].createdAt, detailedJob[0].updatedAt)} days`} `} ago
+
+    return (
+        <>
+            <div className="flex mt-10">
+                <h2 className="leading-[30px] text-[24px] tracking-[-0.75px]">{detailedJob.title}</h2>
+                <div className="ml-auto">
+                    <span>€ {detailedJob.salary.replace(/[k]/gi," 000")}</span>
+                    <p className="jod-detailed-text">Brutto, per year</p>
+                </div>
+            </div>
+            <span className="secondary-text">Posted {`${dateDiffInDays(detailedJob.createdAt, detailedJob.updatedAt) > 0 ?
+                `${dateDiffInDays(detailedJob.createdAt, detailedJob.updatedAt)} day` :
+                `${dateDiffInDays(detailedJob.createdAt, detailedJob.updatedAt)} days`} `} ago
           </span>
-          <p>
-              {descriptionText[0]}
-          </p>
-          <h3>Responsopilities</h3>
-          <p>
-              {descriptionText[1]}
-          </p>
-          <h3>Compensation & Benefits</h3>
-          {/*<BenefitsList arrayBenefits={descriptionText[2].split('.')}/>*/}
+            <p className="jod-detailed-text mb-8 mt-2">
+                {descriptionArray[0]}
+            </p>
+            <h3 className="mb-4">Responsopilities</h3>
+            <p className="jod-detailed-text mb-8">
+                {descriptionArray[1]}
+            </p>
+            <h3 className="mb-4">Compensation & Benefits:</h3>
+            <ul>
+                {descriptionArray[2].split('. ').map((item: string, index: number)=>{
+                  return(<li className="benefit-item" key={index}>
+                      <p className="jod-detailed-text">
+                          {item}
+                      </p>
+                  </li>)
+                })}
+            </ul>
 
-      </>
-  )
+        </>
+    )
 }
 
 export default JobDescription;
