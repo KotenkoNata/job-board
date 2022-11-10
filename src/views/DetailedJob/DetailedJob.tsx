@@ -5,6 +5,8 @@ import ButtonApply from "../../components/Button/ButtonApply";
 import JobDescription from "../../components/JobDescription/JobDescription";
 import JobDetailsHeader from "../../components/JobDetailsHeader/JobDetailsHeader";
 import AdditionalInfo from "../../components/AdditionalInfo/AdditionalInfo";
+import AttachedImages from "../../components/AttachedImages/AttachedImages";
+import ButtonBack from "../../components/Button/ButtonBack";
 
 interface Props {
     jobs: Job[]
@@ -33,13 +35,17 @@ const DetailedJob = ({jobs}: Props) => {
     }
 
     return (
-        <div className="grid grid-cols-[_2fr_1fr] gap-[8rem]">
+        <div className="grid grid-cols-[_2fr_1fr] gap-[8rem] pt-14 pb-40">
             <div>
-                <JobDetailsHeader/>
-                <ButtonApply/>
-                <JobDescription detailedJob={detailedJob}/>
-                <ButtonApply/>
-                <AdditionalInfo detailedJob={detailedJob}/>
+                <div className="pl-24">
+                    <JobDetailsHeader/>
+                    <ButtonApply/>
+                    <JobDescription detailedJob={detailedJob}/>
+                    <ButtonApply/>
+                    <AdditionalInfo detailedJob={detailedJob}/>
+                    <AttachedImages detailedJob={detailedJob}/>
+                </div>
+                <ButtonBack />
             </div>
             <div>
                 map
