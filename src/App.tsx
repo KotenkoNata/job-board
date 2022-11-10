@@ -16,7 +16,7 @@ interface Props {
     responseData: Job[];
 }
 
-const App: React.FC = ()=>{
+const App: React.FC = () => {
     const [data, setData] = useState({
         error: "",
         responseData: [],
@@ -46,6 +46,7 @@ const App: React.FC = ()=>{
             }
             return null
         }
+
         getJob();
     }, [])
 
@@ -54,7 +55,7 @@ const App: React.FC = ()=>{
             <Container>
                 <Routes>
                     <Route path={routes.jobList} element={<JobList data={data.responseData}/>}/>
-                    <Route path={routes.detailedJob} element={<DetailedJob jobs={data.responseData}/>} />
+                    <Route path={routes.detailedJob} element={<DetailedJob jobs={data.responseData}/>}/>
                     {/*<Route component={NotFound} />*/}
                 </Routes>
             </Container>

@@ -23,12 +23,12 @@ const JobDescription = ({detailedJob}: Props) => {
 
     return (
         <>
-            <div className="grid grid-cols-[_3fr_1fr] gap-[4rem] mt-10">
+            <div className="grid grid-cols-[_3fr_auto] gap-[4rem] mt-10">
                 <div>
                 <h2 className="leading-[30px] text-[24px] tracking-[-0.75px]">{detailedJob.title}</h2>
                 </div>
                 <div className="ml-auto">
-                    <span>€ {detailedJob.salary.replace(/[k]/gi," 000")}</span>
+                    <p>€ {detailedJob.salary.replace(/[k]/gi," 000")}</p>
                     <p className="jod-detailed-text">Brutto, per year</p>
                 </div>
             </div>

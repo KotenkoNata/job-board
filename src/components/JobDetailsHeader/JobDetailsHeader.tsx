@@ -6,11 +6,11 @@ const JobDetailsHeader = () => {
         <h1 className="text-[28px] leading-[34px] tracking-[0.413333px]">Job Details</h1>
         <ul className="jod-detailed-text flex ml-auto">
           <li className="flex mr-12 w-[100%]">
-            <img className="mr-2" src={`${process.env.PUBLIC_URL}/images/Bookmark.svg`}></img>
+            <img className="mr-2" src={`${process.env.PUBLIC_URL}/images/Bookmark.svg`} alt="Bookmark icon"></img>
             <span className="">Save to my list</span>
           </li>
           <li className="flex">
-            <img  className="mr-2" src={`${process.env.PUBLIC_URL}/images/Share.svg`}></img>
+            <img  className="mr-2" src={`${process.env.PUBLIC_URL}/images/Share.svg`} alt="Share icon"></img>
             <span>Share</span>
           </li>
         </ul>

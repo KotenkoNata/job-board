@@ -11,10 +11,10 @@ const JobListItem = ({job}: Props)=>{
 
    return(
        <li key={job.id} className="bg-[#FFFFFF] px-6 py-4 flex h-[164px] items-center mb-[8px] shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]">
-           <div className="h-[85px] w-[85px] bg-slate-800 rounded-full overflow-hidden mr-7">
-           <img className="object-fill" src={job.pictures[0]} alt={job.name}/>
+           <div className="h-20 w-20 rounded-full overflow-hidden mr-7">
+                <img className="object-cover w-[100%] h-[100%]" src={job.pictures[0]} alt={job.name}/>
            </div>
-           <div className="w-[100%]">
+           <div className="w-[90%]">
                <div className="flex">
                    <div>
                        <Link to={{pathname: `/job/${job.id}`}}>

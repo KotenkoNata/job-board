@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import {Job} from "./../../models";
 import JobList from "../../components/JobList/JobList";
 

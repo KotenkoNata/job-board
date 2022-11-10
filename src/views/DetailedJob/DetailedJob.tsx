@@ -7,6 +7,7 @@ import JobDetailsHeader from "../../components/JobDetailsHeader/JobDetailsHeader
 import AdditionalInfo from "../../components/AdditionalInfo/AdditionalInfo";
 import AttachedImages from "../../components/AttachedImages/AttachedImages";
 import ButtonBack from "../../components/Button/ButtonBack";
+import Map from "../../components/Map/Map";
 
 interface Props {
     jobs: Job[]
@@ -48,7 +49,7 @@ const DetailedJob = ({jobs}: Props) => {
                 <ButtonBack />
             </div>
             <div>
-                map
+                <Map detailedJob={detailedJob} />
             </div>
         </div>
     )

@@ -13,17 +13,17 @@ const AdditionalInfo = ({detailedJob}:Props) => {
           </h2>
           <h4 className="secondary-text mb-3">Employment type</h4>
           <div className="mb-10">
-              {detailedJob.employment_type.map(item=>{
+              {detailedJob.employment_type.map((item, index)=>{
                   return(
-                      <button className="rounded-[8px] bg-[#E2E6F4] py-[17px] px-[90px] border-[#B7C1DA] border-solid border mr-2 hover:shadow-[0_4px_4px_rgba(0,0,0,0.25)] transition ease-in-out duration-300" type="button">{item}</button>
+                      <button key={index} className="rounded-[8px] bg-[#E2E6F4] py-[17px] px-[90px] border-[#B7C1DA] border-solid border mr-2 hover:shadow-[0_4px_4px_rgba(0,0,0,0.25)] transition ease-in-out duration-300" type="button">{item}</button>
                   )
               })}
           </div>
           <h4 className="secondary-text mb-3">Benefits</h4>
           <div>
-              {detailedJob.benefits.map(item=>{
+              {detailedJob.benefits.map((item, index)=>{
                   return(
-                      <button className="rounded-[8px] bg-[#FFF8D9] py-[17px] px-[90px] border-[#FFCF00] border-solid border mr-2 text-[#988B49] hover:shadow-[0_4px_4px_rgba(0,0,0,0.25)] transition ease-in-out duration-300" type="button">{item}</button>
+                      <button key={index} className="rounded-[8px] bg-[#FFF8D9] py-[17px] px-[90px] border-[#FFCF00] border-solid border mr-2 text-[#988B49] hover:shadow-[0_4px_4px_rgba(0,0,0,0.25)] transition ease-in-out duration-300" type="button">{item}</button>
                   )
               })}
           </div>
