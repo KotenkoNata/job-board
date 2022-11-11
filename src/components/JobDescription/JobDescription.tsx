@@ -1,6 +1,7 @@
 import React from "react";
 import {Job} from "../../models";
 import dateDiffInDays from "./../../services/dateDiffInDays";
+import PostedDay from "../PostedDay/PostedDay";
 
 interface Props {
     detailedJob: Job
@@ -32,10 +33,9 @@ const JobDescription = ({detailedJob}: Props) => {
                     <p className="jod-detailed-text">Brutto, per year</p>
                 </div>
             </div>
-            <span className="secondary-text">Posted {`${dateDiffInDays(detailedJob.createdAt, detailedJob.updatedAt) > 0 ?
-                `${dateDiffInDays(detailedJob.createdAt, detailedJob.updatedAt)} day` :
-                `${dateDiffInDays(detailedJob.createdAt, detailedJob.updatedAt)} days`} `} ago
-          </span>
+            <div className="secondary-text">
+                <PostedDay createdAt={detailedJob.createdAt} updatedAt={detailedJob.updatedAt} />
+            </div>
             <p className="jod-detailed-text mb-8 mt-2">
                 {descriptionArray[0]}
             </p>

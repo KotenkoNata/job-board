@@ -8,7 +8,7 @@ interface Props {
 
 const JobList: React.FC<Props> =({data}: Props)=>{
     return (
-        <ul className="mx-auto my-0 mt-7">
+        <ul className="mx-auto my-0">
             {data.map((item, index) =>(
                 <JobListItem job={item} key={index}/>
             ))}
