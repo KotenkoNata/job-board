@@ -1,6 +1,5 @@
 import React from "react";
 import {Job} from "../../models";
-import dateDiffInDays from "./../../services/dateDiffInDays";
 import PostedDay from "../PostedDay/PostedDay";
 
 interface Props {

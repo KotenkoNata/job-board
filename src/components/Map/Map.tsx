@@ -25,8 +25,8 @@ const Map = ({detailedJob}: Props) => {
                     <img className="mr-4" src={`${process.env.PUBLIC_URL}/images/Location.svg`} alt="Location icon"></img>
                     <p className="text-[#E7EAF0] mb-2">{detailedJob.address}</p>
                 </div>
-                <a className="text-[#E7EAF0] jod-detailed-text mb-2" inputMode={"tel"}>{detailedJob.phone},<br/></a>
-                <a className="text-[#E7EAF0] jod-detailed-text" inputMode={"email"}>{detailedJob.email}</a>
+                <a href={"tel:" + detailedJob.phone} className="text-[#E7EAF0] jod-detailed-text mb-2" inputMode={"tel"}>{detailedJob.phone},<br/></a>
+                <a href={"mailto:"+ detailedJob.email} className="text-[#E7EAF0] jod-detailed-text" inputMode={"email"}>{detailedJob.email}</a>
             </div>
             <GoogleMapReact
                 bootstrapURLKeys={keys}
