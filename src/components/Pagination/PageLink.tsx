@@ -1,4 +1,4 @@
-import React, { HTMLProps } from "react";
+import React, {HTMLProps} from "react";
 import cn from "classnames";
 
 export type Props = HTMLProps<HTMLAnchorElement> & { active?: boolean };
@@ -16,12 +16,13 @@ export default function PageLink({
     });
 
     if (disabled) {
-        return <span className={`block py-2 px-3 ml-0 leading-tight text-[#70778B] bg-[#FFFFFF] rounded-l-lg ${customClassName}`}>{children}</span>;
+        return <span
+            className={`block py-2 px-3 ml-0 leading-tight text-[#70778B] bg-[#FFFFFF] rounded-l-lg sm:text-[16px] sm:leading-[19px] sm:tracking-[1.33333px] ${customClassName}`}>{children}</span>;
     }
 
     return (
         <a
-            className={`className="block py-2 px-3 leading-tight text-[#70778B] bg-[#FFFFFF] ${customClassName === "active"? "border-b-2 border-[#5876C5] text-[#5876C5]" : ""}`}
+            className={`className="block py-2 px-3 leading-tight text-[#70778B] bg-[#FFFFFF] sm:text-[16px] sm:leading-[19px] sm:tracking-[1.33333px] ${customClassName === "active" ? "border-b-2 border-[#5876C5] text-[#5876C5]" : ""}`}
             aria-current={active ? 'page' : undefined}
             {...otherProps}
         >

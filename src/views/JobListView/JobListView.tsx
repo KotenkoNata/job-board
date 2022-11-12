@@ -8,10 +8,9 @@ interface Props {
 }
 
 const JobListView = ({data}: Props) => {
-
     return (
         <>
-            <JobList data = {data}/>
+            <JobList data={data}/>
         </>
     )
 }
