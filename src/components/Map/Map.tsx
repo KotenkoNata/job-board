@@ -17,26 +17,32 @@ const Map = ({detailedJob}: Props) => {
         key: `${mapKey}`
     };
     return (
-        <div className="relative h-[430px] rounded-lg overflow-hidden">
-            <div className="absolute top-0 left-0 z-10 bg-[#2A3047] w-[100%] px-16 py-8 text-[#E7EAF0]">
-                <h3>Department name.</h3>
-                <p className="mb-2">{detailedJob.name}</p>
-                <div className="flex jod-detailed-text items-baseline">
-                    <img className="mr-4" src={`${process.env.PUBLIC_URL}/images/Location.svg`} alt="Location icon"></img>
-                    <p className="text-[#E7EAF0] mb-2">{detailedJob.address}</p>
+        <div>
+            <h2 className="hidden mt-20 mb-5 border-b-[2px] pb-[10px] text-[28px] leading-[34px] tracking-[0.413333px] sm:mt-10 sm:block">
+                Contacts
+            </h2>
+
+            <div className="relative h-[430px] rounded-lg overflow-hidden">
+                <div className="absolute top-0 left-0 z-10 bg-[#2A3047] w-[100%] px-16 py-8 text-[#E7EAF0]">
+                    <h3>Department name.</h3>
+                    <p className="mb-2">{detailedJob.name}</p>
+                    <div className="flex jod-detailed-text items-baseline">
+                        <img className="mr-4" src={`${process.env.PUBLIC_URL}/images/Location.svg`} alt="Location icon"></img>
+                        <p className="text-[#E7EAF0] mb-2">{detailedJob.address}</p>
+                    </div>
+                    <a href={"tel:" + detailedJob.phone} className="text-[#E7EAF0] jod-detailed-text mb-2" inputMode={"tel"}>{detailedJob.phone},<br/></a>
+                    <a href={"mailto:"+ detailedJob.email} className="text-[#E7EAF0] jod-detailed-text" inputMode={"email"}>{detailedJob.email}</a>
                 </div>
-                <a href={"tel:" + detailedJob.phone} className="text-[#E7EAF0] jod-detailed-text mb-2" inputMode={"tel"}>{detailedJob.phone},<br/></a>
-                <a href={"mailto:"+ detailedJob.email} className="text-[#E7EAF0] jod-detailed-text" inputMode={"email"}>{detailedJob.email}</a>
+                <GoogleMapReact
+                    bootstrapURLKeys={keys}
+                    defaultCenter={{lat: detailedJob.location.lat, lng: detailedJob.location.long}}
+                    options={{
+                        mapId: `${mapId}`
+                    }}
+                    defaultZoom={17}>
+                    <LocationPin/>
+                </GoogleMapReact>
             </div>
-            <GoogleMapReact
-                bootstrapURLKeys={keys}
-                defaultCenter={{lat: detailedJob.location.lat, lng: detailedJob.location.long}}
-                options={{
-                    mapId: `${mapId}`
-                }}
-                defaultZoom={17}>
-                <LocationPin/>
-            </GoogleMapReact>
         </div>
     )
 }
