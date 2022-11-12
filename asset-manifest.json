@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/job-board/static/css/main.e2640335.css",
+    "main.js": "/job-board/static/js/main.660feff4.js",
+    "index.html": "/job-board/index.html",
+    "main.e2640335.css.map": "/job-board/static/css/main.e2640335.css.map",
+    "main.660feff4.js.map": "/job-board/static/js/main.660feff4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e2640335.css",
+    "static/js/main.660feff4.js"
+  ]
+}
