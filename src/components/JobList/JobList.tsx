@@ -1,8 +1,7 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {Job} from "../../models";
 import JobListItem from "../JobListItem/JobListItem";
 import Pagination from "../Pagination/Pagination";
-import {useLocation} from "react-router-dom";
 
 interface Props {
     data: Job[];

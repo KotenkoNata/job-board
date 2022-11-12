@@ -36,7 +36,7 @@ const DetailedJob = ({jobs}: Props) => {
     }
 
     return (
-        <div className="grid grid-cols-[60%_400px] gap-[8rem] pt-14 pb-40 sm:block sm:gap-0 sm:pt-2 sm:pb-10">
+        <div className="grid grid-cols-[minmax(0,_1fr)_400px] gap-[8rem] pt-14 pb-40 sm:block sm:gap-0 sm:pt-2 sm:pb-10">
             <div>
                 <div className="pl-20 sm:pl-0">
                     <JobDetailsHeader/>

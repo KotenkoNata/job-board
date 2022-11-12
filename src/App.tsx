@@ -4,17 +4,8 @@ import routes from "./routes";
 import './App.css';
 import Container from "./components/Container/Container"
 import getJobList from "./services/jobAPI";
-import {Job} from "./models";
 import JobList from "./views/JobListView/JobListView";
 import DetailedJob from "./views/DetailedJob/DetailedJob";
-
-// const JobList = React.lazy(() => import("./views/JobListView/JobListView"));
-// const DetailedJob = React.lazy(()=>import("./views/DetailedJob/DetailedJob"));
-
-interface Props {
-    error: string;
-    responseData: Job[];
-}
 
 const App: React.FC = () => {
     const [data, setData] = useState({
@@ -56,7 +47,6 @@ const App: React.FC = () => {
                 <Routes>
                     <Route path={routes.jobList} element={<JobList data={data.responseData}/>}/>
                     <Route path={routes.detailedJob} element={<DetailedJob jobs={data.responseData}/>}/>
-                    {/*<Route component={NotFound} />*/}
                 </Routes>
             </Container>
         </div>
